@@ -11,6 +11,14 @@ export const MoviesList = () => {
 
   const dispatch = useDispatch();
   const favorito = useSelector(state => state.favorite);
+
+  /**const list1 = ["1","2","3","4","5"]
+  const teste = list1.filter(function(val) {
+    return val != "3" && val != "2";
+  })
+  console.log("t " + teste)
+  console.log("T1 " + list1);**/
+  
   
   const requestMovies = async () => {
     const moviesResults = await MoviesServices.getPopularMovies();
@@ -35,7 +43,11 @@ export const MoviesList = () => {
               style={{ marginLeft:"30px"}}>
               <IoIosCheckmarkCircleOutline />
             </button>
-    
+            <button 
+              onClick={() => dispatch(deleteFavorities(movie))}
+              style={{ marginLeft:"30px"}}>
+              <IoIosCloseCircleOutline />
+            </button>
           </li>
         ))}
       </ul>
