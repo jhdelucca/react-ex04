@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from "react";
 import MoviesServices from "../services/MoviesService"
-import { useDispatch, useSelector } from "react-redux";
-import { setFavorite } from "../action/favoriteActions";
+
 
 export const MovieDetail = (props) => {
 
@@ -9,8 +8,7 @@ export const MovieDetail = (props) => {
 
   const movieLocate = 'https://image.tmdb.org/t/p/w500/';
 
-  const dispatch = useDispatch();
-  const favorito = useSelector(state => state.favorite);
+
 
   const requestMovies = async () => {
     const moviesResults = await MoviesServices.getMovieId(props.match.params.movieId);
@@ -31,12 +29,7 @@ export const MovieDetail = (props) => {
 
       <p>{movie.data.overview}</p><br></br>
 
-      <button
-        onClick={() => dispatch(setFavorite(!favorito.fav))}
-        style={{ backgroundColor: favorito.fav ? "green" : "red" }}
-      >
-        Favoritar
-      </button>
+
     </>
   )
 };

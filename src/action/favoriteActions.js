@@ -1,6 +1,14 @@
-export const SET_FAVORITE = "SET_FAVORITE";
+export const INCREMENT_FAVORITE = "INCREMENT_FAVORITE"
+export const DELETE_FAVORITIES = "DELETE_FAVORITE";
 
-export const setFavorite = favorite => ({
-    type: SET_FAVORITE,
+export const incrementFavorite = favorite => ({
+    type: INCREMENT_FAVORITE,
     payload: favorite
+        
 });
+
+export const deleteFavorities = favorite => ({
+    type: DELETE_FAVORITIES,
+    payload: favorite
+  });
+  
